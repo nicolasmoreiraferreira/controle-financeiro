@@ -60,26 +60,26 @@ credenciais separadas — sem que ninguém enxergue o dado de ninguém.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │  Navegador — React 19 + TypeScript + Tailwind CSS                │
-│  Consumo tipado via tRPC: sem contrato duplicado à mão            │
-└───────────────────────────────┬──────────────────────────────────┘
+│  Consumo tipado via tRPC: sem contrato duplicado à mão           │
                                 │  tRPC sobre HTTP
-┌───────────────────────────────▼──────────────────────────────────┐
-│  Servidor — Node.js + Express                                     │
-│  Routers tRPC · validação com Zod · sessão autenticada            │
+                                ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  Servidor — Node.js + Express                                    │
+│  Routers tRPC · validação com Zod · sessão autenticada           │
 ├──────────────────────────────────────────────────────────────────┤
-│  Domínio (funções puras, testadas isoladamente)                   │
-│  fixedBillMath · creditCardMath · financialGoalMath               │
-│  monthlyBalance · monthlyReportMath · financialPlanningMath       │
-│  duplicateDetector · goalContributionRecommendation               │
+│  Domínio — funções puras, testadas isoladamente                  │
+│  fixedBillMath · creditCardMath · financialGoalMath              │
+│  monthlyBalance · monthlyReportMath · financialPlanningMath      │
+│  duplicateDetector · goalContributionRecommendation              │
 ├──────────────────────────────────────────────────────────────────┤
-│  Persistência — Drizzle ORM + MySQL                               │
-│  Isolamento por userId em toda consulta · índices únicos          │
-└───────────────────────────────┬──────────────────────────────────┘
+│  Persistência — Drizzle ORM + MySQL                              │
+│  Isolamento por userId em toda consulta · índices únicos         │
+└────────────────────────────────┬─────────────────────────────────┘
                                 │
-        ┌───────────────────────┼────────────────────────┐
-        ▼                       ▼                        ▼
-  Evolution API            Armazenamento            Sincronizador
-  (webhook do WhatsApp)    de arquivos (S3)         de planilha
+      ┌─────────────────────────┼─────────────────────────┐
+      ▼                         ▼                         ▼
+      Evolution API             Armazenamento             Sincronizador
+      (webhook do WhatsApp)     de arquivos (S3)          de planilha
 ```
 
 ### Decisões que valem explicar
